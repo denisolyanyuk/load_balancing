@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  balancer:
+    build:
+      context: .
+    ports:
+      - "8000:80"
+
+
+  node_ua_1:
+    image: nginx:latest
+    volumes:
+      - ./index_ua_1.html:/usr/share/nginx/html/index.html
+  node_ua_2:
+    image: nginx:latest
+    volumes:
+      - ./index_ua_2.html:/usr/share/nginx/html/index.html
+  node_uk:
+    image: nginx:latest
+    volumes:
+      - ./index_uk.html:/usr/share/nginx/html/index.html
+
+  node_us_1:
+    image: nginx:latest
+    volumes:
+      - ./index_us_1.html:/usr/share/nginx/html/index.html
+
+  node_us_2:
+    image: nginx:latest
+    volumes:
+      - ./index_us_2.html:/usr/share/nginx/html/index.html
+
